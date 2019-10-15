@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import { persistStore } from 'redux-persist';
 
 // State Redux
-import { AuthState } from './modules/auth/types';
+import { CharacterState } from './modules/characters/types';
 
 import rootReducer from './modules/rootReducer';
 import rootSaga from './modules/rootSaga';
@@ -12,7 +12,7 @@ import persistedReducers from './persistReducers';
 import createStore from './createStore';
 
 export interface ApplicationState {
-  auth: AuthState;
+  characters: CharacterState;
 }
 
 // const sagaMonitor =

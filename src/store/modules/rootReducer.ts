@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { reducer as toastrReducer } from 'react-redux-toastr';
 
-import auth from './auth';
+import characters from './characters';
 
 export default combineReducers({
-  auth,
+  characters,
   toastr: toastrReducer,
 });

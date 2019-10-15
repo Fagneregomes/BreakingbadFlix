@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  height: 100%;
-  background: linear-gradient(-90deg, #2ec4b6, #20897f);
+  background: linear-gradient(-90deg, #020603, #265f70);
+  min-height: 100%;
+`;
+
+export const Container = styled.div`
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

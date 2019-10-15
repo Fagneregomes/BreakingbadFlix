@@ -1,7 +1,7 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Subtitle } from './styles';
 
 export default function Sugestões() {
-  return <h1>Sugestões</h1>;
+  return <Subtitle>Sugestões</Subtitle>;
 }

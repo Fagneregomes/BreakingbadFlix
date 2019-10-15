@@ -18,7 +18,7 @@ export default function Header() {
         </nav>
 
         <aside>
-          <Input placeholder="Search..." />
+          <Input icon="search" placeholder="Pesquise os personagens" />
         </aside>
       </Content>
     </Container>
