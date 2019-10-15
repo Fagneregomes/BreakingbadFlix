@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Input } from 'semantic-ui-react';
-
 import logo from '~/assets/icons/breakingbad.png';
 import { Container, Content } from './styles';
 
@@ -16,10 +14,6 @@ export default function Header() {
           <Link to="/Personagens">Personagens</Link>
           <Link to="/Sugestoes">Sugestões</Link>
         </nav>
-
-        <aside>
-          <Input icon="search" placeholder="Pesquise os personagens" />
-        </aside>
       </Content>
     </Container>
   );

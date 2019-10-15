@@ -26,6 +26,10 @@ export default function Card({ character }: OwnProps) {
       case 'Presumed dead':
         setState({ color: '#dc73ffc4', text: 'Presumida' });
         break;
+
+      case 'Unknown':
+        setState({ color: '#d4d4d5', text: 'Desconhecido' });
+        break;
       default:
         break;
     }
