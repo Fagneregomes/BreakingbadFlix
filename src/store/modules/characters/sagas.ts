@@ -15,7 +15,7 @@ export function* getCharacter(action: any) {
 
     yield put(characterSuccess(data));
   } catch (err) {
-    toastr.error('Ops', 'Usuário ou senha invalidos');
+    toastr.error('Ops', 'Falha ao tentar carregar personagens');
     yield put(characterFailure());
   }
 }

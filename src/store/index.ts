@@ -4,6 +4,7 @@ import { persistStore } from 'redux-persist';
 
 // State Redux
 import { CharacterState } from './modules/characters/types';
+import { EpisodesState } from './modules/episodes/types';
 
 import rootReducer from './modules/rootReducer';
 import rootSaga from './modules/rootSaga';
@@ -13,6 +14,7 @@ import createStore from './createStore';
 
 export interface ApplicationState {
   characters: CharacterState;
+  episodes: EpisodesState;
 }
 
 // const sagaMonitor =
