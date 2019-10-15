@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { List, Divider } from 'semantic-ui-react';
+import { List } from 'semantic-ui-react';
 
 import { Header, Content, Box, BoxFlex } from './styles';
 import { Episodes } from '~/store/modules/episodes/types';

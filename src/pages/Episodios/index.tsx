@@ -7,7 +7,6 @@ import { List, Segment } from 'semantic-ui-react';
 // Redux
 import { ApplicationState } from '~/store';
 import { episodesRequest } from '~/store/modules/episodes/actions';
-import { Episodes } from '~/store/modules/episodes/types';
 
 import { Container, Content, Subtitle } from './styles';
 import ListItem from './components/ListItem';
