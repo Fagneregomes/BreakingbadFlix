@@ -5,9 +5,9 @@
   <img src="https://miro.medium.com/max/614/1*zcK3vvoVjsqkqB0oja8RWw.png" alt="drawing" width="85" height="65"/>
 </p>
 
-# Simple example React, Typescript Styled-Component, Redux-saga
+# Projeto React, Typescript e redux.
 
-A simply example typescript using redux-saga
+typescript using redux-saga
 
 ## Setting Up
 
@@ -22,13 +22,13 @@ Yarn(Optional): [click here to download](https://yarnpkg.com/lang/en/docs/instal
 first clone the project:
 
 ```bash
-https://github.com/Fagneregomes/tsreact.git
+https://github.com/Fagneregomes/BreakingbadFlix.git
 ```
 
 then, go to the project folder:
 
 ```bash
-cd tsreact
+cd BreakingbadFlix
 ```
 
 follow one of the steps below according to your node dependency manager to set up the project
