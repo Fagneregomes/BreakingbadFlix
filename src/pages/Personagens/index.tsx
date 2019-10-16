@@ -24,7 +24,6 @@ export default function Personagens() {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(characters);
     const temp = characters.data
       .filter(
         item =>
