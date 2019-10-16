@@ -5,6 +5,7 @@ const INITIAL_STATE: CharacterState = {
   data: [],
   error: false,
   loading: false,
+  totalPage: 0,
 };
 
 const character: Reducer<CharacterState> = (state = INITIAL_STATE, action) => {
@@ -13,7 +14,12 @@ const character: Reducer<CharacterState> = (state = INITIAL_STATE, action) => {
       return { ...state, data: [], loading: true };
 
     case CharacterTypes.CHARACTERS_SUCCESS:
-      return { data: [...action.payload], loading: false, error: false };
+      return {
+        data: [...action.payload.character],
+        totalPage: action.payload.totalPage,
+        loading: false,
+        error: false,
+      };
 
     case CharacterTypes.CHARACTERS_FAILURE:
       return { ...state, error: true, loading: false };

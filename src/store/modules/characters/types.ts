@@ -5,6 +5,7 @@ export enum CharacterTypes {
   CHARACTERS_REQUEST = '@Character/CHARACTERS_REQUEST',
   CHARACTERS_SUCCESS = '@Character/CHARACTERS_SUCCESS',
   CHARACTERS_FAILURE = '@Character/CHARACTERS_FAILURE',
+  CHANGE_TOTALPAGE = '@Character/CHANGE_TOTALPAGE',
 }
 
 /**
@@ -31,4 +32,5 @@ export interface CharacterState {
   readonly data: Character[];
   readonly loading: boolean;
   readonly error: boolean;
+  readonly totalPage: number;
 }

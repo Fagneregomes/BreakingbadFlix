@@ -8,12 +8,17 @@ import { CharacterTypes } from './types';
 import { characterSuccess, characterFailure } from './actions';
 
 export function* getCharacter(action: any) {
+  const { limit, offset } = action.payload;
+
   try {
-    const response = yield call(api.get, 'characters');
+    const respTotalPage = yield call(api.get, 'characters', { params: { limit: 100, offset: 0 } });
+    const totalPage = respTotalPage.data.length;
+
+    const response = yield call(api.get, 'characters', { params: { limit, offset } });
 
     const { data } = response;
 
-    yield put(characterSuccess(data));
+    yield put(characterSuccess(data, totalPage));
   } catch (err) {
     toastr.error('Ops', 'Falha ao tentar carregar personagens');
     yield put(characterFailure());

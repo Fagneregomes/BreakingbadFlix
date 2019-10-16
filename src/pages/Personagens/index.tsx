@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button, Dimmer, Loader, Input } from 'semantic-ui-react';
+import { Button, Dimmer, Loader, Input, Pagination, PaginationProps } from 'semantic-ui-react';
 
+import { isNumber } from 'util';
 import { Container, Subtitle, MenuContent, Content, TextFilter, NoSearch } from './styles';
 import Card from '~/components/Card';
 
@@ -16,12 +17,16 @@ export default function Personagens() {
   const characters = useSelector((state: ApplicationState) => state.characters);
   const [status, setStatus] = useState('');
   const [search, setSearch] = useState('');
-  const [dataSearch, setData] = useState<Character[]>();
+  const [data, setData] = useState<Character[]>();
+  const [offset, setOffset] = useState(0);
+  const [activePage, setActivePage] = useState(1);
   const dispatch = useDispatch();
 
+  const totalPage = data ? Math.ceil(characters.totalPage / 10) : 0;
+
   useEffect(() => {
-    dispatch(characterRequest(''));
-  }, [dispatch]);
+    dispatch(characterRequest('', 10, offset));
+  }, [dispatch, offset]);
 
   useEffect(() => {
     const temp = characters.data
@@ -34,6 +39,24 @@ export default function Personagens() {
 
     setData(temp);
   }, [characters, characters.data, search, setData, status]);
+
+  function handlePageChange(
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    datapage: PaginationProps
+  ) {
+    const currentPage = isNumber(datapage.activePage) ? datapage.activePage : 0;
+    setActivePage(currentPage);
+
+    if (currentPage <= totalPage && activePage < currentPage) {
+      setOffset(currentPage * 10 - 10);
+      dispatch(characterRequest('', 10, currentPage * 10 - 10));
+    }
+
+    if (currentPage > 0 && activePage > currentPage) {
+      setOffset(currentPage * 10 - 10);
+      dispatch(characterRequest('', 10, currentPage * 10 - 10));
+    }
+  }
 
   return (
     <Container>
@@ -88,13 +111,20 @@ export default function Personagens() {
           </Dimmer>
         </Content>
       )}
-      {dataSearch && dataSearch.length === 0 && !characters.loading && (
+      {data && data.length === 0 && !characters.loading && (
         <Content>
           <NoSearch>Não resultado para "{search}"</NoSearch>
         </Content>
       )}
+      <Content>{data && data.map(item => <Card key={item.char_id} character={item} />)}</Content>
       <Content>
-        {dataSearch && dataSearch.map(item => <Card key={item.char_id} character={item} />)}
+        {data && data.length > 0 && (
+          <Pagination
+            activePage={activePage}
+            onPageChange={handlePageChange}
+            totalPages={totalPage}
+          />
+        )}
       </Content>
     </Container>
   );
