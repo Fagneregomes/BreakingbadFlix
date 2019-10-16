@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Button, Dimmer, Loader, Input } from 'semantic-ui-react';
 
-import { Container, Subtitle, MenuContent, Content, TextFilter } from './styles';
+import { Container, Subtitle, MenuContent, Content, TextFilter, NoSearch } from './styles';
 import Card from '~/components/Card';
 
 // Redux
@@ -24,6 +24,7 @@ export default function Personagens() {
   }, [dispatch]);
 
   useEffect(() => {
+    console.log(characters);
     const temp = characters.data
       .filter(
         item =>
@@ -33,7 +34,7 @@ export default function Personagens() {
       .map(element => element);
 
     setData(temp);
-  }, [characters.data, search, setData, status]);
+  }, [characters, characters.data, search, setData, status]);
 
   return (
     <Container>
@@ -86,6 +87,11 @@ export default function Personagens() {
           <Dimmer active>
             <Loader>Loading</Loader>
           </Dimmer>
+        </Content>
+      )}
+      {dataSearch && dataSearch.length === 0 && !characters.loading && (
+        <Content>
+          <NoSearch>Não resultado para "{search}"</NoSearch>
         </Content>
       )}
       <Content>

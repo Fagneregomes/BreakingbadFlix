@@ -8,6 +8,10 @@ export const Subtitle = styled.h1`
   color: #fafafa;
 `;
 
+export const NoSearch = styled.h2`
+  color: #fafafa;
+`;
+
 export const TextFilter = styled.span`
   color: #fafafa;
   margin-right: 10px;
